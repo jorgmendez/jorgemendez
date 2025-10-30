@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Microsoft × Activision · Event Study | Jorge Mendez</title>
+  <title>Customer Churn Analysis (Excel only) | Jorge Mendez</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -55,8 +55,8 @@
     <div class="bar">
       <a class="btn" href="../index.html">← Back to Home</a>
       <div class="spacer"></div>
-      <a class="btn" href="../Event%20Study%20-%20Activision.docx" target="_blank">Report (DOCX)</a>
-      <a class="btn" href="../data/EventStudy_YahooData.csv" target="_blank">Data (CSV)</a>
+      <a class="btn" href="../Customer_Churn_Analysis.xlsx" target="_blank">Download Workbook (XLSX)</a>
+      <a class="btn" href="../data/Churn_Data_Sample.csv" target="_blank">View Data (CSV)</a>
       <button class="icon-btn" id="themeBtn" aria-label="Toggle dark/light">☾</button>
     </div>
   </div>
@@ -65,90 +65,87 @@
     <aside>
       <h3>Contents</h3>
       <nav class="toc">
-        <a href="#abstract">Abstract</a>
-        <a href="#data">Data</a>
-        <a href="#method">Methodology</a>
-        <a href="#results">Results</a>
-        <a href="#robust">Robustness</a>
+        <a href="#overview">Overview</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#approach">Approach</a>
+        <a href="#insights">Key Insights</a>
+        <a href="#figures">Figures</a>
         <a href="#files">Files</a>
       </nav>
     </aside>
 
     <main>
-      <h1>Microsoft × Activision · Event Study</h1>
-      <p class="meta"><strong>Tools:</strong> R, Excel · <strong>Windows:</strong> Estimation (2021-07-01 to 2022-01-10), Event (2022-01-11 to 2022-01-28)</p>
+      <h1>Customer Churn Analysis (Excel only)</h1>
+      <p class="meta">Sep 2025 · Tools: Excel (pivot tables · slicers · conditional formatting · doughnut and column charts)</p>
 
-      <section id="abstract" class="section">
-        <h2>Abstract</h2>
-        <p>I evaluate market reaction to Microsoft’s $68.7B acquisition of Activision Blizzard announced on Jan 18, 2022. Using an estimation window to fit expected returns and an event window to measure impacts, I compute abnormal returns (AR) and cumulative abnormal returns (CAR). A two-sample t-test shows a significant mean shift; CAPM and a sector-adjusted multifactor model confirm significance. CAR increases ≈ +29% post-announcement.</p>
+      <section id="overview" class="section">
+        <h2>Overview</h2>
+        <p>This project explores churn patterns in a telco-style dataset using Excel only. I built an interactive workbook with KPIs, drill‑downs, and slicers—no Power BI or code—so a business user can filter by plan, region, and usage to see what drives customer losses.</p>
       </section>
 
-      <section id="data" class="section">
-        <h2>Data</h2>
+      <section id="dataset" class="section">
+        <h2>Dataset</h2>
         <ul>
-          <li><strong>Sources:</strong> Yahoo Finance daily prices for ATVI and S&P 500.</li>
-          <li><strong>Series:</strong> Close prices and computed daily log/percent returns.</li>
-          <li><strong>Prep:</strong> Cleaned dates, aligned trading days, computed returns in R/Excel.</li>
+          <li><strong>Rows:</strong> customers with demographics, plan features, usage, and churn flag.</li>
+          <li><strong>Targets:</strong> churned vs retained, churn reason text, churn rate %.</li>
+          <li><strong>Prep in Excel:</strong> cleaned headers, created helper columns (age bands · usage bands), set up tables for pivots.</li>
         </ul>
-        <div class="note">Returns aren’t perfectly normal, but with n ≈ 144 the t-test is reasonably robust; CLT supports inference on mean differences.</div>
+        <div class="note">I kept everything native to Excel so analysts without BI tools can run the same analysis with filters and slicers.</div>
       </section>
 
-      <section id="method" class="section">
-        <h2>Methodology</h2>
-        <p><strong>Steps:</strong> (1) Fit expected returns on the estimation window; (2) compute AR = R<sub>ATVI</sub> − E[R<sub>ATVI</sub>] on event days; (3) accumulate to CAR; (4) test significance.</p>
+      <section id="approach" class="section">
+        <h2>Approach</h2>
         <ul>
-          <li><strong>t-test:</strong> mean comparison (estimation vs event window returns).</li>
-          <li><strong>CAPM:</strong> r<sub>i</sub> − r<sub>f</sub> = α + β (r<sub>m</sub> − r<sub>f</sub>) + ε</li>
-          <li><strong>Multifactor:</strong> CAPM + sector index (ESPO) for gaming/esports exposure.</li>
+          <li><strong>Pivots:</strong> churn rate by reason, demographics, age group, state, and data usage bands.</li>
+          <li><strong>Visuals:</strong> bar chart for ranked churn reasons; doughnut charts for competitor-related vs other; combo chart for age bands; heatmap for churn by state.</li>
+          <li><strong>Interactivity:</strong> slicers wired to all pivots (e.g., Intl plan · device type) so the dashboard responds instantly.</li>
+          <li><strong>Formatting:</strong> data bars and color scales highlight the highest‑risk segments.</li>
         </ul>
       </section>
 
-      <section id="results" class="section">
-        <h2>Results</h2>
-        <figure class="figure">
-          <img src="../images/eventstudy_car.png" alt="Cumulative Abnormal Returns (CAR)">
-          <figcaption class="caption"><strong>Figure 1.</strong> CAR shows ≈ +29% jump after the announcement (Day 0).</figcaption>
-        </figure>
-
-        <figure class="figure">
-          <img src="../images/eventstudy_ttest.png" alt="t-test diagnostic">
-          <figcaption class="caption"><strong>Figure 2.</strong> Two-sample t-test; statistic in rejection region (α = 0.05).</figcaption>
-        </figure>
-
-        <figure class="figure">
-          <img src="../images/eventstudy_capm_results.png" alt="CAPM regression output">
-          <figcaption class="caption"><strong>Table 2.</strong> CAPM regression; α and β significant, modest R².</figcaption>
-        </figure>
-
-        <figure class="figure">
-          <img src="../images/eventstudy_multifactor_results.png" alt="Multifactor regression output">
-          <figcaption class="caption"><strong>Table 3.</strong> Multifactor adds ESPO; coefficient significant with improved fit.</figcaption>
-        </figure>
-      </section>
-
-      <section id="robust" class="section">
-        <h2>Robustness</h2>
+      <section id="insights" class="section">
+        <h2>Key Insights</h2>
         <ul>
-          <li>Winsorizing at 1%/99% leaves inference unchanged.</li>
-          <li>Percent vs log returns yield similar CAR shape.</li>
-          <li>Alternative windows (±3, ±5 days) preserve significance.</li>
+          <li>Top drivers are <em>competitor made better offer</em> and <em>better devices</em>, representing the largest slices of churn.</li>
+          <li>Churn rate climbs with age after 59–68; price‑sensitive segments are visible in the combo chart.</li>
+          <li>States with higher churn concentrate in the heatmap’s red band; filters reveal interactions with intl plan.</li>
         </ul>
+      </section>
+
+      <section id="figures" class="section">
+        <h2>Figures</h2>
+        <figure class="figure">
+          <img src="../images/churn_dashboard.png" alt="Excel dashboard with churn reasons, age analysis, demographics doughnuts, and state heatmap">
+          <figcaption class="caption"><strong>Figure 1.</strong> Interactive Excel dashboard summarizing churn KPIs and segments.</figcaption>
+        </figure>
+
+        <figure class="figure">
+          <img src="../images/churn_pivots.png" alt="Pivot table and ranked bar chart of churn reasons">
+          <figcaption class="caption"><strong>Figure 2.</strong> Ranked churn reasons from the underlying pivot table.</figcaption>
+        </figure>
       </section>
 
       <section id="files" class="section">
         <h2>Files</h2>
         <div class="downloads">
-          <a class="btn" href="../Event%20Study%20-%20Activision.docx" target="_blank">Full Report (DOCX)</a>
-          <a class="btn" href="../data/EventStudy_YahooData.csv" target="_blank">Yahoo Finance Data (CSV)</a>
+          <a class="btn" href="../Customer_Churn_Analysis.xlsx" target="_blank">Download Workbook (XLSX)</a>
+          <a class="btn" href="../data/Churn_Data_Sample.csv" target="_blank">View Data (CSV)</a>
         </div>
       </section>
 
-      <footer>© <span id="y"></span> Jorge Mendez · Built with R & Excel</footer>
+      <footer>© <span id="y"></span> Jorge Mendez · Excel dashboards · slicers · pivots</footer>
     </main>
   </div>
 
   <script>
     document.getElementById('y').textContent=new Date().getFullYear();
+    const links=[...document.querySelectorAll('.toc a')];
+    const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+    function setActive(){
+      const y=window.scrollY+110; let k=0; secs.forEach((s,i)=>{if(s&&s.offsetTop<=y)k=i});
+      links.forEach((a,i)=>a.classList.toggle('active',i===k));
+    }
+    window.addEventListener('scroll',setActive,{passive:true}); setActive();
     (function(){
       const r=document.documentElement,b=document.getElementById('themeBtn');
       const s=localStorage.getItem('jm-theme');
