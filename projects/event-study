@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Study – Microsoft x Activision | Jorge Mendez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0d1117;--card:#161b22;--text:#c9d1d9;--muted:#8b949e;--brand:#58a6ff;--border:#30363d;--shadow:0 4px 20px rgba(0,0,0,.3)}
+    *{box-sizing:border-box} body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    .wrap{max-width:900px;margin:auto;padding:32px 20px 80px}
+    a{color:var(--brand);text-decoration:none}
+    .btn{display:inline-block;border:1px solid var(--border);background:var(--card);color:var(--text);padding:9px 12px;border-radius:8px;margin-right:8px}
+    .btn:hover{border-color:var(--brand);box-shadow:var(--shadow)}
+    h1{margin:8px 0 4px;color:#fff;font-size:1.8rem} .sub{color:var(--muted);margin-top:0}
+    .section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 18px 8px;margin-top:16px;box-shadow:var(--shadow)}
+    img{width:100%;max-width:760px;border:1px solid var(--border);border-radius:10px;margin:10px 0 6px}
+    .caption{font-size:.85rem;color:var(--muted);margin:0 0 8px}
+    header a.back{font-size:.95rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="back" href="../index.html">← Back to Home</a>
+    </header>
+
+    <h1>Event Study – Microsoft’s Acquisition of Activision Blizzard</h1>
+    <p class="sub"><strong>Tools:</strong> R, Excel • <strong>Focus:</strong> t-tests, CAPM, Multifactor model, CAR</p>
+
+    <div class="section">
+      <p>Goal: measure the stock market reaction to Microsoft’s $68.7B acquisition announcement of Activision Blizzard (Jan 18, 2022). Using an estimation window (Jul 1, 2021 – Jan 10, 2022) and an event window (Jan 11–28, 2022), I computed daily returns, ran a two-sample t-test, estimated CAPM and a sector-adjusted multifactor model, and calculated CAR.</p>
+      <div>
+        <a class="btn" href="../Event%20Study%20-%20Activision.docx" target="_blank">📄 View report</a>
+        <a class="btn" href="../data/EventStudy_YahooData.csv" target="_blank">📈 View data (CSV)</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <img src="../images/eventstudy_car.png" alt="CAR chart">
+      <p class="caption">Figure 1. CAR shows a sharp ~+29% jump immediately after the announcement (Day 0).</p>
+
+      <img src="../images/eventstudy_ttest.png" alt="t-test distribution">
+      <p class="caption">Figure 2. Two-sample t-test: t = −2.72 falls in the rejection region (α = 0.05).</p>
+
+      <img src="../images/eventstudy_capm_results.png" alt="CAPM results">
+      <p class="caption">Table 2. CAPM regression: significant α and β (p ≈ 0.003, 0.002), R² ≈ 0.07.</p>
+
+      <img src="../images/eventstudy_multifactor_results.png" alt="Multifactor results">
+      <p class="caption">Table 3. Multifactor regression with sector factor (ESPO) improves fit; ESPO p ≈ 0.001.</p>
+    </div>
+
+    <div class="section">
+      <h3>Notes</h3>
+      <ul>
+        <li>Returns and plots created in <strong>R</strong>; regression outputs produced in <strong>Excel</strong>.</li>
+        <li>CSV contains only public Yahoo Finance series (ATVI and S&amp;P 500) used to reproduce results.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
