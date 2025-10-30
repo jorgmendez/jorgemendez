@@ -4,156 +4,92 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jorge Mendez · Data & Finance Portfolio</title>
-  <meta name="description" content="Portfolio of Jorge Mendez · Data Science & Applied Statistics (Finance focus) at the University of Houston·Downtown." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      /* Dark (default) */
-      --bg1:#0e1116;             /* charcoal */
-      --bg2:#0a0c10;             /* near-black */
-      --panel:#121720;           /* card base */
-      --panel-2:#0f141b;         /* subtle inner */
-      --text:#e6edf3;            /* primary text */
-      --muted:#9aa4af;          /* secondary text */
-      --border:#2a2f39;         /* subtle border */
-      --accent:#2f81f7;         /* link/cta */
-      --accent-2:#1f6feb;       /* hover */
-      --shadow:0 10px 28px rgba(0,0,0,.35);
-      --radius:16px;
-      --gap:1.25rem;
-      --thumb-r:12px;
+      --bg1:#0e1116; --bg2:#0a0c10; --panel:#121720; --panel-2:#0f141b; --text:#e6edf3; --muted:#9aa4af; --border:#2a2f39; --accent:#2f81f7; --accent-2:#1f6feb; --shadow:0 10px 28px rgba(0,0,0,.35); --radius:16px; --gap:1.25rem;
     }
-    [data-theme="light"]{
-      --bg1:#f6f8fb;            /* light gradient top */
-      --bg2:#eef2f7;            /* light gradient bottom */
-      --panel:#ffffff;
-      --panel-2:#f9fbff;
-      --text:#0b1220;
-      --muted:#475569;
-      --border:#e5e7eb;
-      --accent:#2563eb;
-      --accent-2:#1d4ed8;
-      --shadow:0 8px 24px rgba(12,17,22,.10);
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: linear-gradient(180deg, var(--bg1), var(--bg2)); /* very faint gradient style */
-      color:var(--text);
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    .container{width:min(1180px, 92vw); margin-inline:auto; padding: 1.2rem 0 4rem;}
-
-    /* Sticky header nav */
-    .site-header{position:sticky; top:0; z-index:30; margin: .8rem 0 1.2rem;}
-    .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:1rem;
-      padding:.9rem 1.1rem;
-      background:linear-gradient(180deg, var(--panel), var(--panel-2));
-      border:1px solid var(--border);
-      border-radius:14px;
-      box-shadow:var(--shadow);
-      backdrop-filter: saturate(1.2) blur(6px);
-    }
-    .brand{display:flex; flex-direction:column}
-    .brand h1{margin:0; font-weight:800; letter-spacing:.2px; font-size:clamp(1.1rem, 2.1vw + .6rem, 1.9rem)}
-    .brand .subtitle{margin:0; color:var(--muted); font-weight:600; font-size:.95rem}
-
-    .menu{display:flex; gap:.75rem; align-items:center}
-    .link, .btn{appearance:none; border:1px solid var(--border); background:transparent; color:var(--text); padding:.5rem .85rem; border-radius:12px; font-weight:600; text-decoration:none; cursor:pointer; transition:transform .08s ease, box-shadow .2s ease, border-color .2s ease}
-    .link:hover{transform:translateY(-1px); border-color:var(--accent)}
-    .btn.primary{background:linear-gradient(180deg, var(--accent), var(--accent-2)); border-color:transparent; color:#fff; box-shadow:0 6px 16px rgba(0,0,0,.28)}
-    .btn.primary:hover{transform:translateY(-1px)}
-
-    /* Section header */
-    .section{margin-top:1.4rem}
-    .title-wrap{display:flex; flex-direction:column; align-items:center; gap:.35rem; margin-bottom:1rem}
-    .section h2{margin:.1rem 0; font-size:clamp(1.2rem, 2.4vw + .4rem, 2rem); font-weight:800}
-    .subtitle-center{color:var(--muted); margin:0}
-
-    /* Project grid like the reference */
-    .grid{display:grid; grid-template-columns:repeat(12, 1fr); gap: var(--gap)}
-    .card{grid-column: span 12; display:grid; grid-template-rows:auto 1fr auto; background:linear-gradient(180deg, var(--panel), var(--panel-2)); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:var(--shadow)}
-    .thumb{display:block; overflow:hidden; border-bottom:1px solid var(--border); background:#0a0f14}
-    .thumb img{display:block; width:100%; height:200px; object-fit:cover}
+    [data-theme="light"]{--bg1:#f6f8fb;--bg2:#eef2f7;--panel:#ffffff;--panel-2:#f9fbff;--text:#0b1220;--muted:#475569;--border:#e5e7eb;--accent:#2563eb;--accent-2:#1d4ed8;--shadow:0 8px 24px rgba(12,17,22,.10)}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    .container{width:min(1180px,92vw);margin-inline:auto;padding:1.2rem 0 4rem}
+    .site-header{position:sticky;top:0;z-index:30;margin:.8rem 0 1.2rem}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1.1rem;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)}
+    .brand h1{margin:0;font-weight:800;font-size:clamp(1.1rem,2.1vw + .6rem,1.9rem)}
+    .brand .subtitle{margin:0;color:var(--muted);font-weight:600;font-size:.95rem}
+    .menu{display:flex;gap:.6rem;align-items:center}
+    .menu .link,.menu .btn{white-space:nowrap}
+    .icon-btn{border:1px solid var(--border);background:transparent;color:var(--text);width:2.25rem;height:2.25rem;padding:0;border-radius:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s ease}
+    .icon-btn:hover{border-color:var(--accent)}
+    .link,.btn{border:1px solid var(--border);background:transparent;color:var(--text);padding:.5rem .85rem;border-radius:12px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s ease}
+    .link:hover{border-color:var(--accent)}
+    .btn.primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));border-color:transparent;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.28)}
+    .about{margin:1.5rem 0 2.5rem;padding:1rem 1.5rem;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+    .card{grid-column:span 12;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:grid;grid-template-rows:auto 1fr auto}
+    .thumb img{width:100%;height:200px;object-fit:cover;display:block}
     .card-body{padding:1rem 1.05rem}
-    .card-date{color:var(--muted); font-size:.9rem; margin:0 0 .25rem}
-    .card h3{margin:.15rem 0 .25rem; font-size:1.05rem}
-    .card p{margin:.35rem 0 0; color:var(--muted)}
-    .card-actions{display:flex; justify-content:flex-start; padding: .9rem 1.05rem 1rem}
-
-    /* Responsive columns */
-    @media (min-width: 780px){ .card{grid-column: span 6} .thumb img{height:190px} }
-    @media (min-width: 1040px){ .card{grid-column: span 4} .thumb img{height:180px} }
-
-    /* Footer */
-    .footer{margin-top:2.4rem; padding-top:1.2rem; border-top:1px dashed var(--border); color:var(--muted); text-align:center}
+    .card-date{color:var(--muted);font-size:.9rem;margin:0 0 .25rem}
+    .card h3{margin:.15rem 0 .25rem;font-size:1.05rem}
+    .card p{margin:.35rem 0 0;color:var(--muted)}
+    .card-actions{display:flex;justify-content:flex-start;padding:.9rem 1.05rem 1rem}
+    @media(min-width:780px){.card{grid-column:span 6}.thumb img{height:190px}}
+    @media(min-width:1040px){.card{grid-column:span 4}.thumb img{height:180px}}
+    .footer{margin-top:2.4rem;padding-top:1.2rem;border-top:1px dashed var(--border);color:var(--muted);text-align:center}
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- HEADER / NAV -->
     <header class="site-header">
       <div class="nav">
         <div class="brand">
-          <h1>Jorge Mendez · Data &amp; Finance Portfolio</h1>
-          <p class="subtitle">Data Science &amp; Applied Statistics @ University of Houston·Downtown</p>
+          <h1>Jorge Mendez · Data & Finance Portfolio</h1>
+          <p class="subtitle">Data Science & Applied Statistics @ University of Houston·Downtown</p>
         </div>
         <nav class="menu" aria-label="Main">
           <a class="link" href="index.html">Home</a>
           <a class="link" href="#projects">Projects</a>
-          <a class="link" href="https://github.com/jorgmendez" target="_blank" rel="noopener">GitHub</a>
-          <a class="link" href="https://www.linkedin.com/in/jorge-mend" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link" href="https://www.linkedin.com/in/jorge-mend" target="_blank">LinkedIn</a>
           <a class="btn primary" href="mailto:jemiliano.mc@gmail.com">Email Me</a>
-          <button class="link" id="themeBtn" type="button" aria-label="Toggle dark/light">☾/☀︎</button>
+          <button class="icon-btn" id="themeBtn" aria-label="Toggle dark/light">☾</button>
         </nav>
       </div>
     </header>
 
-    <!-- PROJECTS SECTION ONLY (hub) -->
-    <section id="projects" class="section" aria-label="Projects">
-      <div class="title-wrap">
-        <h2>My Latest Projects</h2>
-        <p class="subtitle-center">Quick previews. Click through for full case studies.</p>
-      </div>
+    <section class="about" id="about">
+      <h2 style="margin-top:0;color:var(--text)">About Me</h2>
+      <p>I’m a Data Science and Applied Statistics student with a finance focus at the University of Houston–Downtown. I use Python, R, SQL, Excel, and Alteryx to analyze data, build models, and create dashboards that simplify financial decisions. I’m passionate about connecting analytical methods with real business impact.</p>
+    </section>
 
+    <section id="projects">
+      <h2 style="text-align:center;color:var(--text)">My Latest Projects</h2>
       <div class="grid">
-        <!-- Event Study Card -->
         <article class="card">
           <a class="thumb" href="projects/event-study.html">
-            <img src="images/eventstudy_car.png" alt="Event Study CAR graph thumbnail">
+            <img src="images/eventstudy_placeholder.png" alt="Event Study thumbnail">
           </a>
           <div class="card-body">
             <p class="card-date">May 2025 · Event Study</p>
             <h3>Microsoft x Activision · Event Study</h3>
-            <p>ATVI reaction to acquisition news. CAR ≈ <strong>+29%</strong>; significant t‑test; CAPM & multifactor robustness.</p>
+            <p>Stock reaction analysis using Yahoo Finance data; CAR ≈ <strong>+29%</strong> with significant t‑test, CAPM & multifactor validation.</p>
           </div>
           <div class="card-actions">
             <a class="btn" href="projects/event-study.html">Read full case study →</a>
           </div>
         </article>
 
-        <!-- Churn Card -->
         <article class="card">
           <a class="thumb" href="projects/churn.html">
-            <img src="images/churn_dashboard.png" alt="Customer churn dashboard thumbnail">
+            <img src="images/churn_dashboard.png" alt="Customer churn dashboard">
           </a>
           <div class="card-body">
             <p class="card-date">Sep 2025 · Excel</p>
             <h3>Customer Churn Analysis (Excel only)</h3>
-            <p>Pivot tables, slicers, doughnut charts, conditional formatting. Clean KPI summary and cohort-style insights.</p>
+            <p>Pivot tables, slicers, doughnut charts, conditional formatting—built a clean KPI dashboard for quick retention insights.</p>
           </div>
           <div class="card-actions">
             <a class="btn" href="projects/churn.html">View project →</a>
           </div>
         </article>
-
-        
       </div>
     </section>
 
@@ -161,26 +97,24 @@
   </div>
 
   <script>
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Theme: stored -> system -> dark default
+    document.getElementById('year').textContent=new Date().getFullYear();
     (function(){
-      const root = document.documentElement;
-      const btn = document.getElementById('themeBtn');
-      const stored = localStorage.getItem('jm-theme');
-      if(stored === 'light' || stored === 'dark'){
-        root.setAttribute('data-theme', stored);
-      } else {
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        root.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+      const r=document.documentElement, b=document.getElementById('themeBtn');
+      const s=localStorage.getItem('jm-theme');
+      function setIcon(){ b.textContent = (r.getAttribute('data-theme')==='dark') ? '☾' : '☀︎'; }
+      if(s==='light'||s==='dark'){
+        r.setAttribute('data-theme',s);
+      }else{
+        r.setAttribute('data-theme', window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
       }
-      btn.addEventListener('click', ()=>{
-        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('jm-theme', next);
+      setIcon();
+      b.addEventListener('click',()=>{
+        const n = r.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+        r.setAttribute('data-theme',n);
+        localStorage.setItem('jm-theme',n);
+        setIcon();
       });
-    })();
+    })();{const n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);localStorage.setItem('jm-theme',n);setIcon();});})();
   </script>
 </body>
 </html>
