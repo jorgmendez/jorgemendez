@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ent<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -138,47 +138,26 @@
     <h2>Projects</h2>
 
     <div class="project">
-      <h3>Event Study – Microsoft’s Acquisition of Activision Blizzard</h3>
-      <p class="tools"><strong>Tools:</strong> R, Excel</p>
-      <p>
-        Analyzed Microsoft’s $68.7B acquisition of Activision Blizzard to evaluate its market impact.
-        Computed daily returns, conducted a two-sample t-test, and used CAPM and multifactor regression models
-        to estimate abnormal and cumulative abnormal returns (CAR). Found a statistically significant +29% cumulative
-        abnormal return following the announcement.
-      </p>
-
-      <img src="images/eventstudy_car.png" alt="Cumulative Abnormal Returns (CAR) chart">
-      <p class="caption">Figure 1. Cumulative Abnormal Returns showing +29% market reaction post-announcement.</p>
-
-      <img src="images/eventstudy_ttest.png" alt="t-test distribution">
-      <p class="caption">Figure 2. t-Test rejection regions and test statistic (-2.72) showing significant mean difference.</p>
-
-      <img src="images/eventstudy_capm_results.png" alt="CAPM regression results table">
-      <p class="caption">Table 2. CAPM regression results showing significant alpha (p = 0.0029) and beta (p = 0.0021).</p>
-
-      <img src="images/eventstudy_multifactor_results.png" alt="Multifactor regression table">
-      <p class="caption">Table 3. Multifactor regression showing ESPO sector coefficient significance (p = 0.0013).</p>
-
-      <div class="buttons">
-        <a class="btn" href="Event%20Study%20-%20Activision.docx" target="_blank">📄 View Report</a>
-      </div>
-    </div>
-
-    <div class="project">
-      <h3>Customer Churn Analysis</h3>
-      <p class="tools"><strong>Tools:</strong> Excel, Power BI</p>
-      <p>
-        Built an interactive churn analysis to identify key patterns in customer retention and forecast churn rates.
-        Created visual dashboards in Power BI and used cohort analysis in Excel to uncover customer behavior trends.
-      </p>
-      <img src="images/churn_dashboard.png" alt="Power BI churn dashboard">
-      <div class="buttons">
-        <a class="btn" href="Customer_Churn_Analysis.xlsx" target="_blank">📊 View Data</a>
-      </div>
-    </div>
-
-    <footer>© <span id="year"></span> Jorge Mendez • Houston, TX</footer>
+  <h3>Event Study – Microsoft’s Acquisition of Activision Blizzard</h3>
+  <p class="tools"><strong>Tools:</strong> R, Excel</p>
+  <p>Measured market reaction using t-tests, CAPM, and a multifactor model; found a +29% CAR after the announcement.</p>
+  <div class="buttons">
+    <a class="btn" href="projects/event-study.html">View project →</a>
   </div>
+</div>
+
+   <div class="project">
+  <h3>Customer Churn Analysis</h3>
+  <p class="tools"><strong>Tools:</strong> Excel (pivot tables, slicers, charts)</p>
+  <p>
+    Built an Excel workbook to explore retention patterns and churn drivers using pivot tables, cohort-style breakdowns, and
+    interactive slicers. Summarized KPIs with doughnut and column charts, plus a clean summary dashboard.
+  </p>
+  <div class="buttons">
+    <a class="btn" href="projects/churn.html">View project →</a>
+  </div>
+</div>
+
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
