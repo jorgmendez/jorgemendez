@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Churn Analysis | Jorge Mendez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0d1117;--card:#161b22;--text:#c9d1d9;--muted:#8b949e;--brand:#58a6ff;--border:#30363d;--shadow:0 4px 20px rgba(0,0,0,.3)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    .wrap{max-width:900px;margin:auto;padding:32px 20px 80px}
+    a{color:var(--brand);text-decoration:none}
+    .btn{display:inline-block;border:1px solid var(--border);background:var(--card);color:var(--text);padding:9px 12px;border-radius:8px;margin-right:8px}
+    .btn:hover{border-color:var(--brand);box-shadow:var(--shadow)}
+    h1{margin:8px 0 4px;color:#fff;font-size:1.8rem}
+    .sub{color:var(--muted);margin-top:0}
+    .section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 18px 8px;margin-top:16px;box-shadow:var(--shadow)}
+    img{width:100%;max-width:760px;border:1px solid var(--border);border-radius:10px;margin:10px 0 6px}
+    .caption{font-size:.85rem;color:var(--muted);margin:0 0 8px}
+    header a.back{font-size:.95rem}
+    ul{margin:8px 0 16px 18px}
+    li{margin:4px 0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="back" href="../index.html">← Back to Home</a>
+    </header>
+
+    <h1>Customer Churn Analysis</h1>
+    <p class="sub"><strong>Tools:</strong> Excel only — pivot tables, pivot charts, slicers, doughnut charts, conditional formatting, gradients</p>
+
+    <div class="section">
+      <p>
+        Goal: explore customer retention and churn patterns using Excel. Built a clean workbook with a summary dashboard,
+        cohort-style breakdowns by join month and tenure, and interactive slicers for segment, region, and plan type.
+        Visuals include doughnut charts for composition, clustered columns for rates over time, and KPI cards.
+      </p>
+      <div>
+        <a class="btn" href="../Customer_Churn_Analysis.xlsx" target="_blank">📊 Download Excel</a>
+        <!-- Optional: add a CSV if you want a small, public dataset -->
+        <!-- <a class="btn" href="../data/Churn_Data_Sample.csv" target="_blank">📈 View data (CSV)</a> -->
+      </div>
+    </div>
+
+    <div class="section">
+      <img src="../images/churn_dashboard.png" alt="Excel churn dashboard overview">
+      <p class="caption">Figure 1. Excel dashboard with slicers and KPI cards. Doughnut chart shows churn vs. active mix; columns show churn rate by month.</p>
+
+      <img src="../images/churn_pivots.png" alt="Pivot tables and charts">
+      <p class="caption">Figure 2. Pivot tables for churn by segment and tenure band. Conditional formatting highlights high-risk groups.</p>
+
+      <img src="../images/churn_trend.png" alt="Churn trend over months">
+      <p class="caption">Figure 3. Monthly churn trend. Gradient formatting emphasizes recent periods.</p>
+    </div>
+
+    <div class="section">
+      <h3>Workbook Notes</h3>
+      <ul>
+        <li><strong>Data model:</strong> one clean customer table with status, join date, cancel date, segment, plan, region.</li>
+        <li><strong>Measures/fields:</strong> basic calculated fields for churn flag, tenure months, and monthly period index.</li>
+        <li><strong>Interactivity:</strong> slicers wired to pivots to filter charts and KPIs in real time.</li>
+        <li><strong>Formatting:</strong> doughnut chart for composition, clustered/line charts for rates and trends, subtle gradients for emphasis.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
