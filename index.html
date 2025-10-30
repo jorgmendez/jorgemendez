@@ -1,33 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jorge Mendez – Data & Finance Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jorge Mendez • Data & Finance Portfolio</title>
+  <meta name="description" content="Projects in data analytics, finance, forecasting, and automation by Jorge Mendez." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px; color: #222; }
-    h1 { color: #004aad; }
-    h2 { border-bottom: 2px solid #ddd; padding-bottom: 4px; }
-    .project { margin-bottom: 30px; }
-    a { color: #004aad; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    :root{
+      --bg: #0b0c10;
+      --card: #12141a;
+      --text: #e8eaed;
+      --muted: #a6adbb;
+      --brand: #4f8cff;
+      --brand-2:#62d4a5;
+      --border: #21242d;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f6f7fb;
+        --card: #ffffff;
+        --text: #151a22;
+        --muted: #586174;
+        --brand: #2d6cf6;
+        --brand-2:#10b981;
+        --border: #e7e9f0;
+        --shadow: 0 8px 24px rgba(28,28,68,.08);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.6;
+    }
+    .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 64px}
+    header{
+      display:grid;gap:16px;margin-bottom:28px
+    }
+    .title{
+      font-size: clamp(28px, 4vw, 40px);
+      line-height:1.15;margin:0
+    }
+    .sub{color:var(--muted);max-width:820px;margin:0}
+    .chiprow{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .chip{
+      border:1px solid var(--border);
+      color:var(--muted);
+      padding:4px 10px;border-radius:999px;font-size:13px
+    }
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+    .btn{
+      appearance:none;border:1px solid var(--border);
+      background:linear-gradient(180deg, var(--card), rgba(0,0,0,0));
+      color:var(--text);
+      padding:10px 14px;border-radius:12px;
+      text-decoration:none;font-weight:600;
+      transition:.18s transform ease,.18s box-shadow ease,.18s border-color ease;
+      display:inline-flex;align-items:center;gap:8px
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow);border-color:#3b82f6}
+    .btn.primary{background:linear-gradient(180deg, var(--brand), #3b72ff);color:#fff;border-color:transparent}
+    .btn.success{background:linear-gradient(180deg, var(--brand-2), #15b07a);color:#03210f;border-color:transparent}
+
+    /* Section heading */
+    .section-title{
+      font-size: clamp(20px, 3vw, 26px);
+      margin:24px 0 12px 0;
+    }
+    .divider{height:1px;background:var(--border);border-radius:2px;margin:8px 0 18px}
+
+    /* Project card */
+    .grid{display:grid;grid-template-columns:1fr;gap:18px}
+    @media (min-width:860px){.grid{grid-template-columns:1fr 1fr}}
+    .card{
+      background:var(--card);border:1px solid var(--border);border-radius:18px;
+      box-shadow:var(--shadow);padding:18px 18px 14px;display:flex;flex-direction:column;gap:12px;
+    }
+    .card h3{margin:0;font-size:20px;line-height:1.25}
+    .meta{color:var(--muted);font-size:14px}
+    .thumb{
+      width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--border);
+      background:#0e1525 center/cover no-repeat;
+    }
+    .toolrow{display:flex;flex-wrap:wrap;gap:8px}
+    .tool{background:rgba(79,140,255,.12);color:#b7cdfd;border:1px solid rgba(79,140,255,.25);padding:4px 10px;border-radius:999px;font-size:12px}
+    @media (prefers-color-scheme: light){.tool{color:#1f3c8f;background:#e9f0ff;border-color:#d9e6ff}}
+    .links{display:flex;flex-wrap:wrap;gap:8px}
+    .btn.small{padding:8px 12px;border-radius:10px;font-size:14px}
+    footer{margin-top:36px;color:var(--muted);font-size:13px}
+    .kicker{font-weight:700;letter-spacing:.06em;color:var(--brand);text-transform:uppercase;font-size:12px}
+    .list{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 0;padding:0}
+    .list li{list-style:none;border:1px dashed var(--border);padding:6px 10px;border-radius:10px;color:var(--muted);font-size:13px}
+
+    /* Accessibility focus */
+    a:focus-visible, .btn:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:12px}
   </style>
 </head>
 <body>
-  <h1>Jorge Mendez – Data & Finance Portfolio</h1>
-  <p>I’m a Data Science and Applied Statistics student at the University of Houston–Downtown with a finance focus. I use Python, SQL, Power BI, Excel, and Alteryx to analyze data, automate workflows, and create dashboards that support financial and operational decisions.</p>
+  <main class="wrap">
+    <header>
+      <h1 class="title">Jorge Mendez • Data & Finance Portfolio</h1>
+      <p class="sub">
+        I’m a Data Science and Applied Statistics student at the University of Houston–Downtown with a finance focus.
+        I work with Python, SQL, Power BI, Excel, and Alteryx to analyze data, automate workflows, and build dashboards that support financial and operational decisions.
+      </p>
+      <div class="chiprow">
+        <span class="chip">Python</span><span class="chip">R</span><span class="chip">SQL</span>
+        <span class="chip">Power BI</span><span class="chip">Alteryx</span><span class="chip">Excel</span>
+        <span class="chip">Forecasting</span><span class="chip">Financial Analytics</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn primary" href="Jorge_Mendez_Resume.pdf" target="_blank">View Resume</a>
+        <a class="btn" href="mailto:jemiliano.mc@gmail.com">Email me</a>
+        <a class="btn success" href="https://www.linkedin.com/in/jorge-mend" target="_blank">LinkedIn</a>
+        <a class="btn" href="https://github.com/jorgemendez" target="_blank">GitHub</a>
+      </div>
+    </header>
 
-  <h2>Projects</h2>
+    <h2 class="section-title">Projects</h2>
+    <div class="divider"></div>
 
-  <div class="project">
-    <h3>Event Study – Microsoft’s Acquisition of Activision Blizzard</h3>
-    <p><strong>Tools:</strong> Excel, Google Sheets, Python</p>
-    <p>Performed an event study analyzing the market reaction to Microsoft’s $68.7B acquisition of Activision Blizzard. Used t-tests, CAPM, and multifactor regression to assess abnormal stock returns (CAR ≈ +29%).</p>
-    <a href="https://github.com/jorgemendez/jorgemendez/blob/main/Event%20Study%20-%20Activision.docx">📄 View report</a> |
-    <a href="https://docs.google.com/spreadsheets/d/YOUR-LINK-HERE">📊 View data</a>
-  </div>
+    <section class="grid">
+      <!-- Project 1 -->
+      <article class="card">
+        <div class="thumb" style="background-image:url('images/eventstudy_thumb.png');" aria-label="Event study chart preview"></div>
+        <h3>Event Study • Microsoft’s Acquisition of Activision Blizzard</h3>
+        <p class="meta"><strong>Tools:</strong> Excel, Google Sheets, Python</p>
+        <p>
+          Performed an event study analyzing the market reaction to Microsoft’s $68.7B acquisition of Activision Blizzard.
+          Used t-tests, CAPM, and multifactor regression to measure abnormal returns (CAR ≈ +29%).
+        </p>
+        <div class="toolrow">
+          <span class="tool">Event Window</span><span class="tool">CAPM</span><span class="tool">CAR</span><span class="tool">Regression</span>
+        </div>
+        <div class="links">
+          <a class="btn small" href="Event%20Study%20-%20Activision.docx" target="_blank">Report</a>
+          <a class="btn small" href="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID" target="_blank">Data</a>
+          <a class="btn small" href="images/eventstudy_full.png" target="_blank">Chart</a>
+        </div>
+      </article>
 
-  <div class="project">
-    <h3>Customer Churn Analysis</h3>
-    <p><strong>Tools:</strong> Excel </p>
-    <p>B
+      <!-- Project 2 -->
+      <article class="card">
+        <div class="thumb" style="background-image:url('images/churn_thumb.png');" aria-label="Churn dashboard preview"></div>
+        <h3>Customer Churn Analysis</h3>
+        <p class="meta"><strong>Tools:</strong> Excel, Power BI</p>
+        <p>
+          Built an interactive churn analysis to identify retention patterns and estimate churn rates. Created dashboard views,
+          cohort pivots, and simple forecasting to support decision-making.
+        </p>
+        <div class="toolrow">
+          <span class="tool">Cohorts</span><span class="tool">DAX</span><span class="tool">Forecast</span><span class="tool">Visualization</span>
+        </div>
+        <div class="links">
+          <a class="btn small" href="Customer_Churn_Analysis.xlsx" target="_blank">Excel</a>
+          <a class="btn small" href="https://app.powerbi.com/links/YOUR_PUBLIC_LINK" target="_blank">Live Dashboard</a>
+          <a class="btn small" href="images/churn_dashboard.png" target="_blank">Screenshot</a>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-title">Skills</h2>
+    <div class="divider"></div>
+    <div>
+      <p class="kicker">Core</p>
+      <ul class="list">
+        <li>Financial analysis</li><li>Forecasting</li><li>Data automation</li><li>Data visualization</li>
+      </ul>
+      <p class="kicker">Programming & Tools</p>
+      <ul class="list">
+        <li>Python</li><li>R</li><li>SQL</li><li>Power BI</li><li>Alteryx</li><li>Excel</li>
+      </ul>
+      <p class="kicker">Other</p>
+      <ul class="list">
+        <li>Spanish (fluent)</li><li>Microsoft Office</li>
+      </ul>
+    </div>
+
+    <footer>
+      © <span id="y"></span> Jorge Mendez • Houston, TX
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
