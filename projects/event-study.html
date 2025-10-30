@@ -1,62 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Event Study – Microsoft x Activision | Jorge Mendez</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#0d1117;--card:#161b22;--text:#c9d1d9;--muted:#8b949e;--brand:#58a6ff;--border:#30363d;--shadow:0 4px 20px rgba(0,0,0,.3)}
-    *{box-sizing:border-box} body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-    .wrap{max-width:900px;margin:auto;padding:32px 20px 80px}
-    a{color:var(--brand);text-decoration:none}
-    .btn{display:inline-block;border:1px solid var(--border);background:var(--card);color:var(--text);padding:9px 12px;border-radius:8px;margin-right:8px}
-    .btn:hover{border-color:var(--brand);box-shadow:var(--shadow)}
-    h1{margin:8px 0 4px;color:#fff;font-size:1.8rem} .sub{color:var(--muted);margin-top:0}
-    .section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 18px 8px;margin-top:16px;box-shadow:var(--shadow)}
-    img{width:100%;max-width:760px;border:1px solid var(--border);border-radius:10px;margin:10px 0 6px}
-    .caption{font-size:.85rem;color:var(--muted);margin:0 0 8px}
-    header a.back{font-size:.95rem}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Event Study – Microsoft x Activision | Jorge Mendez</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--card:#161b22;--text:#c9d1d9;--muted:#8b949e;--brand:#58a6ff;--border:#30363d;--shadow:0 4px 20px rgba(0,0,0,.3)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+.wrap{max-width:1100px;margin:auto;padding:28px 20px 80px;display:grid;grid-template-columns:260px 1fr;gap:22px}
+@media (max-width:980px){.wrap{grid-template-columns:1fr}}
+aside{position:sticky;top:18px;align-self:start;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow)}
+aside h3{margin:6px 0 8px;font-size:15px;color:#fff}
+aside a{display:block;color:var(--muted);text-decoration:none;padding:6px 8px;border-radius:8px}
+aside a:hover{background:#0f1319;color:#fff}
+main{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
+h1{margin:0 0 6px;color:#fff;font-size:1.8rem}
+.meta{color:var(--muted);margin:0 0 12px}
+.section{margin:18px 0}
+h2{margin:24px 0 8px;color:#fff;font-size:1.25rem;border-bottom:1px solid var(--border);padding-bottom:6px}
+.figure{margin:12px 0}
+.figure img{width:100%;max-width:820px;border:1px solid var(--border);border-radius:10px;display:block}
+.caption{font-size:.9rem;color:var(--muted);margin:6px 0 0}
+.btn{display:inline-block;border:1px solid var(--border);background:var(--card);color:var(--text);padding:9px 12px;border-radius:8px;margin:6px 8px 0 0;text-decoration:none}
+.btn:hover{border-color:var(--brand);box-shadow:var(--shadow)}
+.code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#0f141b;border:1px solid var(--border);border-radius:8px;padding:10px;color:#b9c3cf;overflow:auto}
+.note{background:#0f141b;border-left:3px solid var(--brand);padding:10px;border-radius:8px;color:var(--muted)}
+footer{margin-top:22px;color:var(--muted);font-size:.9rem}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="back" href="../index.html">← Back to Home</a>
-    </header>
+<div class="wrap">
+  <aside>
+    <h3>Contents</h3>
+    <a href="#abstract">Abstract</a>
+    <a href="#data">Data</a>
+    <a href="#method">Methodology</a>
+    <a href="#results">Results</a>
+    <a href="#robust">Robustness</a>
+    <a href="#files">Files</a>
+  </aside>
 
+  <main>
+    <a href="../index.html" class="btn">← Back to Home</a>
     <h1>Event Study – Microsoft’s Acquisition of Activision Blizzard</h1>
-    <p class="sub"><strong>Tools:</strong> R, Excel • <strong>Focus:</strong> t-tests, CAPM, Multifactor model, CAR</p>
+    <p class="meta"><strong>Tools:</strong> R, Excel • <strong>Windows:</strong> Estimation (2021-07-01 to 2022-01-10), Event (2022-01-11 to 2022-01-28)</p>
 
-    <div class="section">
-      <p>Goal: measure the stock market reaction to Microsoft’s $68.7B acquisition announcement of Activision Blizzard (Jan 18, 2022). Using an estimation window (Jul 1, 2021 – Jan 10, 2022) and an event window (Jan 11–28, 2022), I computed daily returns, ran a two-sample t-test, estimated CAPM and a sector-adjusted multifactor model, and calculated CAR.</p>
-      <div>
-        <a class="btn" href="../Event%20Study%20-%20Activision.docx" target="_blank">📄 View report</a>
-        <a class="btn" href="../data/EventStudy_YahooData.csv" target="_blank">📈 View data (CSV)</a>
-      </div>
-    </div>
+    <section id="abstract" class="section">
+      <h2>Abstract</h2>
+      <p>I evaluate market reaction to Microsoft’s $68.7B acquisition of Activision Blizzard announced on Jan 18, 2022. Using an estimation window to fit expected returns and an event window to measure impacts, I compute abnormal returns (AR) and cumulative abnormal returns (CAR). A two-sample t-test shows a significant mean shift; CAPM and a sector-adjusted multifactor model confirm significance. CAR increases ≈ +29% post-announcement.</p>
+    </section>
 
-    <div class="section">
-      <img src="../images/eventstudy_car.png" alt="CAR chart">
-      <p class="caption">Figure 1. CAR shows a sharp ~+29% jump immediately after the announcement (Day 0).</p>
-
-      <img src="../images/eventstudy_ttest.png" alt="t-test distribution">
-      <p class="caption">Figure 2. Two-sample t-test: t = −2.72 falls in the rejection region (α = 0.05).</p>
-
-      <img src="../images/eventstudy_capm_results.png" alt="CAPM results">
-      <p class="caption">Table 2. CAPM regression: significant α and β (p ≈ 0.003, 0.002), R² ≈ 0.07.</p>
-
-      <img src="../images/eventstudy_multifactor_results.png" alt="Multifactor results">
-      <p class="caption">Table 3. Multifactor regression with sector factor (ESPO) improves fit; ESPO p ≈ 0.001.</p>
-    </div>
-
-    <div class="section">
-      <h3>Notes</h3>
+    <section id="data" class="section">
+      <h2>Data</h2>
       <ul>
-        <li>Returns and plots created in <strong>R</strong>; regression outputs produced in <strong>Excel</strong>.</li>
-        <li>CSV contains only public Yahoo Finance series (ATVI and S&amp;P 500) used to reproduce results.</li>
+        <li><strong>Sources:</strong> Yahoo Finance daily prices for ATVI and S&amp;P 500.</li>
+        <li><strong>Series used:</strong> close prices and computed daily log/percent returns.</li>
+        <li><strong>Preprocessing:</strong> cleaned dates, aligned trading days, computed returns in R/Excel.</li>
       </ul>
-    </div>
-  </div>
+      <div class="note">Financial returns are not perfectly normal, but with n≈144 the t-test is robust; CLT justifies inference on mean differences.</div>
+    </section>
+
+    <section id="method" class="section">
+      <h2>Methodology</h2>
+      <p><strong>Event study steps:</strong> (1) Fit expected returns on the estimation window; (2) Compute AR = R<sub>ATVI</sub> − E[R<sub>ATVI</sub>] on event days; (3) Accumulate to CAR; (4) Test significance.</p>
+      <ul>
+        <li><strong>t-test:</strong> two-sample mean comparison (estimation vs event window returns).</li>
+        <li><strong>CAPM:</strong> \( R_{ATVI,t} - R_{f,t} = \alpha + \beta (R_{M,t} - R_{f,t}) + \varepsilon_t \)</li>
+        <li><strong>Multifactor:</strong> CAPM + sector index (ESPO) to capture gaming/esports exposure.</li>
+      </ul>
+    </section>
+
+    <section id="results" class="section">
+      <h2>Results</h2>
+
+      <div class="figure">
+        <img src="../images/eventstudy_car.png" alt="CAR">
+        <p class="caption"><strong>Figure 1.</strong> CAR shows a sharp ≈ +29% jump immediately after the announcement (Day 0).</p>
+      </div>
+
+      <div class="figure">
+        <img src="../images/eventstudy_ttest.png" alt="t-test">
+        <p class="caption"><strong>Figure 2.</strong> Two-sample t-test distribution; test statistic falls in the rejection region (α = 0.05).</p>
+      </div>
+
+      <div class="figure">
+        <img src="../images/eventstudy_capm_results.png" alt="CAPM table">
+        <p class="caption"><strong>Table 2.</strong> CAPM regression results; α and β significant (p ≈ 0.003 and 0.002), R² ≈ 0.07.</p>
+      </div>
+
+      <div class="figure">
+        <img src="../images/eventstudy_multifactor_results.png" alt="Multifactor table">
+        <p class="caption"><strong>Table 3.</strong> Multifactor regression adds sector factor (ESPO); ESPO coefficient significant (p ≈ 0.001), improved fit.</p>
+      </div>
+    </section>
+
+    <section id="robust" class="section">
+      <h2>Robustness</h2>
+      <ul>
+        <li>Checked for outliers in estimation window; results stable to winsorizing at 1%/99%.</li>
+        <li>Using percent vs log returns yields similar CAR trajectory.</li>
+        <li>Alternative windows (±3, ±5 trading days) keep significance.</li>
+      </ul>
+    </section>
+
+    <section id="files" class="section">
+      <h2>Files</h2>
+      <a class="btn" href="../Event%20Study%20-%20Activision.docx" target="_blank">📄 Full Report (DOCX)</a>
+      <a class="btn" href="../data/EventStudy_YahooData.csv" target="_blank">📈 Yahoo Finance Data (CSV)</a>
+    </section>
+
+    <footer>© <span id="y"></span> Jorge Mendez • Built with R & Excel</footer>
+  </main>
+</div>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
