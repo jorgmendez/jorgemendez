@@ -3,20 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Customer Churn Analysis (Excel only) | Jorge Mendez</title>
+  <title>Microsoft × Activision · Event Study | Jorge Mendez</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg1:#0e1116; --bg2:#0a0c10; --panel:#121720; --panel-2:#0f141b; --text:#e6edf3; --muted:#9aa4af; --border:#2a2f39; --accent:#2f81f7; --accent-2:#1f6feb; --shadow:0 10px 28px rgba(0,0,0,.35); --radius:14px;
-    }
-    [data-theme="light"]{
-      --bg1:#f6f8fb; --bg2:#eef2f7; --panel:#ffffff; --panel-2:#f9fbff; --text:#0b1220; --muted:#475569; --border:#e5e7eb; --accent:#2563eb; --accent-2:#1d4ed8; --shadow:0 8px 24px rgba(12,17,22,.10);
-    }
+    :root{--bg1:#0e1116;--bg2:#0a0c10;--panel:#121720;--panel-2:#0f141b;--text:#e6edf3;--muted:#9aa4af;--border:#2a2f39;--accent:#2f81f7;--accent-2:#1f6feb;--shadow:0 10px 28px rgba(0,0,0,.35);--radius:14px}
+    [data-theme="light"]{--bg1:#f6f8fb;--bg2:#eef2f7;--panel:#ffffff;--panel-2:#f9fbff;--text:#0b1220;--muted:#475569;--border:#e5e7eb;--accent:#2563eb;--accent-2:#1d4ed8;--shadow:0 8px 24px rgba(12,17,22,.1)}
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
     a{color:var(--accent);text-decoration:none}
     a:hover{color:var(--accent-2)}
-
     .topbar{position:sticky;top:0;z-index:40;background:transparent;margin:1rem 0 0}
     .bar{display:flex;gap:.6rem;align-items:center;justify-content:space-between;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:.7rem .9rem}
     .btn{display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--border);background:transparent;color:var(--text);padding:.5rem .85rem;border-radius:12px;font-weight:600;cursor:pointer}
@@ -24,28 +19,22 @@
     .spacer{flex:1}
     .icon-btn{width:2.2rem;height:2.2rem;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:10px;background:transparent;color:var(--text)}
     .icon-btn:hover{border-color:var(--accent)}
-
     .wrap{width:min(1180px,92vw);margin-inline:auto;padding:18px 0 64px;display:grid;grid-template-columns:260px 1fr;gap:20px}
-    @media (max-width:980px){.wrap{grid-template-columns:1fr}}
-
+    @media(max-width:980px){.wrap{grid-template-columns:1fr}}
     aside{position:sticky;top:4.5rem;align-self:start;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow)}
     aside h3{margin:4px 0 8px;font-size:15px;color:var(--text)}
     .toc a{display:block;color:var(--muted);padding:6px 8px;border-radius:8px;border-left:2px solid transparent}
     .toc a:hover{background:#0f1319;color:var(--text)}
     .toc a.active{color:var(--accent);border-color:var(--accent)}
-
     main{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
     h1{margin:.2rem 0 4px;color:var(--text);font-size:1.85rem}
     .meta{color:var(--muted);margin:0 0 12px}
     .section{margin:22px 0}
     h2{margin:24px 0 10px;color:var(--text);font-size:1.25rem;border-bottom:1px solid var(--border);padding-bottom:6px}
-
     .note{background:var(--panel-2);border-left:3px solid var(--accent);padding:10px 14px;border-radius:10px;color:var(--muted);box-shadow:inset 0 0 6px rgba(0,0,0,.12)}
-
     .figure{margin:14px 0;background:var(--panel-2);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:inset 0 0 8px rgba(0,0,0,.12)}
     .figure img{width:100%;display:block}
     .caption{font-size:.9rem;color:var(--muted);margin:0;padding:.6rem .8rem;border-top:1px solid var(--border);background:var(--panel)}
-
     .downloads{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
     footer{margin-top:22px;color:var(--muted);font-size:.92rem}
   </style>
@@ -53,10 +42,10 @@
 <body>
   <div class="topbar">
     <div class="bar">
-      <a class="btn" href="../index.html">← Back to Home</a>
+      <a class="btn" href="../../index.html">← Back to Home</a>
       <div class="spacer"></div>
-      <a class="btn" href="../Customer_Churn_Analysis.xlsx" target="_blank">Download Workbook (XLSX)</a>
-      <a class="btn" href="../data/Churn_Data_Sample.csv" target="_blank">View Data (CSV)</a>
+      <a class="btn" href="report/Event%20Study%20-%20Activision.docx" target="_blank">Report (DOCX)</a>
+      <a class="btn" href="data/EventStudy_YahooData.csv" target="_blank">Data (CSV)</a>
       <button class="icon-btn" id="themeBtn" aria-label="Toggle dark/light">☾</button>
     </div>
   </div>
@@ -65,94 +54,91 @@
     <aside>
       <h3>Contents</h3>
       <nav class="toc">
-        <a href="#overview">Overview</a>
-        <a href="#dataset">Dataset</a>
-        <a href="#approach">Approach</a>
-        <a href="#insights">Key Insights</a>
-        <a href="#figures">Figures</a>
+        <a href="#abstract">Abstract</a>
+        <a href="#data">Data</a>
+        <a href="#method">Methodology</a>
+        <a href="#results">Results</a>
+        <a href="#robust">Robustness</a>
         <a href="#files">Files</a>
       </nav>
     </aside>
 
     <main>
-      <h1>Customer Churn Analysis (Excel only)</h1>
-      <p class="meta">Sep 2025 · Tools: Excel (pivot tables · slicers · conditional formatting · doughnut and column charts)</p>
+      <h1>Microsoft × Activision · Event Study</h1>
+      <p class="meta"><strong>Tools:</strong> R, Excel · <strong>Windows:</strong> Estimation (2021-07-01 to 2022-01-10), Event (2022-01-11 to 2022-01-28)</p>
 
-      <section id="overview" class="section">
-        <h2>Overview</h2>
-        <p>This project explores churn patterns in a telco-style dataset using Excel only. I built an interactive workbook with KPIs, drill‑downs, and slicers—no Power BI or code—so a business user can filter by plan, region, and usage to see what drives customer losses.</p>
+      <section id="abstract" class="section">
+        <h2>Abstract</h2>
+        <p>I evaluate market reaction to Microsoft’s $68.7B acquisition of Activision Blizzard announced on Jan 18, 2022. Using an estimation window to fit expected returns and an event window to measure impacts, I compute abnormal returns (AR) and cumulative abnormal returns (CAR). A two-sample t-test shows a significant mean shift; CAPM and a sector-adjusted multifactor model confirm significance. CAR increases ≈ +29% post-announcement.</p>
       </section>
 
-      <section id="dataset" class="section">
-        <h2>Dataset</h2>
+      <section id="data" class="section">
+        <h2>Data</h2>
         <ul>
-          <li><strong>Rows:</strong> customers with demographics, plan features, usage, and churn flag.</li>
-          <li><strong>Targets:</strong> churned vs retained, churn reason text, churn rate %.</li>
-          <li><strong>Prep in Excel:</strong> cleaned headers, created helper columns (age bands · usage bands), set up tables for pivots.</li>
+          <li><strong>Sources:</strong> Yahoo Finance daily prices for ATVI and S&P 500.</li>
+          <li><strong>Series:</strong> Close prices and computed daily log/percent returns.</li>
+          <li><strong>Prep:</strong> Cleaned dates, aligned trading days, computed returns in R/Excel.</li>
         </ul>
-        <div class="note">I kept everything native to Excel so analysts without BI tools can run the same analysis with filters and slicers.</div>
+        <div class="note">Returns aren’t perfectly normal, but with n ≈ 144 the t-test is robust; CLT supports inference on mean differences.</div>
       </section>
 
-      <section id="approach" class="section">
-        <h2>Approach</h2>
+      <section id="method" class="section">
+        <h2>Methodology</h2>
+        <p><strong>Steps:</strong> (1) Fit expected returns on estimation window; (2) compute AR = R<sub>ATVI</sub> − E[R<sub>ATVI</sub>] on event days; (3) accumulate to CAR; (4) test significance.</p>
         <ul>
-          <li><strong>Pivots:</strong> churn rate by reason, demographics, age group, state, and data usage bands.</li>
-          <li><strong>Visuals:</strong> bar chart for ranked churn reasons; doughnut charts for competitor-related vs other; combo chart for age bands; heatmap for churn by state.</li>
-          <li><strong>Interactivity:</strong> slicers wired to all pivots (e.g., Intl plan · device type) so the dashboard responds instantly.</li>
-          <li><strong>Formatting:</strong> data bars and color scales highlight the highest‑risk segments.</li>
-        </ul>
-      </section>
-
-      <section id="insights" class="section">
-        <h2>Key Insights</h2>
-        <ul>
-          <li>Top drivers are <em>competitor made better offer</em> and <em>better devices</em>, representing the largest slices of churn.</li>
-          <li>Churn rate climbs with age after 59–68; price‑sensitive segments are visible in the combo chart.</li>
-          <li>States with higher churn concentrate in the heatmap’s red band; filters reveal interactions with intl plan.</li>
+          <li><strong>t-test:</strong> mean comparison (estimation vs event window returns).</li>
+          <li><strong>CAPM:</strong> r<sub>i</sub> − r<sub>f</sub> = α + β (r<sub>m</sub> − r<sub>f</sub>) + ε</li>
+          <li><strong>Multifactor:</strong> CAPM + sector index (ESPO) for gaming/esports exposure.</li>
         </ul>
       </section>
 
-      <section id="figures" class="section">
-        <h2>Figures</h2>
+      <section id="results" class="section">
+        <h2>Results</h2>
         <figure class="figure">
-          <img src="../images/churn_dashboard.png" alt="Excel dashboard with churn reasons, age analysis, demographics doughnuts, and state heatmap">
-          <figcaption class="caption"><strong>Figure 1.</strong> Interactive Excel dashboard summarizing churn KPIs and segments.</figcaption>
+          <img src="images/eventstudy_car.png" alt="Cumulative Abnormal Returns (CAR)">
+          <figcaption class="caption"><strong>Figure 1.</strong> CAR shows ≈ +29% jump after the announcement (Day 0).</figcaption>
         </figure>
-
         <figure class="figure">
-          <img src="../images/churn_pivots.png" alt="Pivot table and ranked bar chart of churn reasons">
-          <figcaption class="caption"><strong>Figure 2.</strong> Ranked churn reasons from the underlying pivot table.</figcaption>
+          <img src="images/eventstudy_ttest.png" alt="t-test diagnostic">
+          <figcaption class="caption"><strong>Figure 2.</strong> Two-sample t-test; statistic in rejection region (α = 0.05).</figcaption>
         </figure>
+        <figure class="figure">
+          <img src="images/eventstudy_capm_results.png" alt="CAPM regression output">
+          <figcaption class="caption"><strong>Table 2.</strong> CAPM regression; α and β significant, modest R².</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="images/eventstudy_multifactor_results.png" alt="Multifactor regression output">
+          <figcaption class="caption"><strong>Table 3.</strong> Multifactor adds ESPO; coefficient significant with improved fit.</figcaption>
+        </figure>
+      </section>
+
+      <section id="robust" class="section">
+        <h2>Robustness</h2>
+        <ul>
+          <li>Winsorizing at 1%/99% leaves inference unchanged.</li>
+          <li>Percent vs log returns yield similar CAR shape.</li>
+          <li>Alternative windows (±3, ±5 days) preserve significance.</li>
+        </ul>
       </section>
 
       <section id="files" class="section">
         <h2>Files</h2>
         <div class="downloads">
-          <a class="btn" href="../Customer_Churn_Analysis.xlsx" target="_blank">Download Workbook (XLSX)</a>
-          <a class="btn" href="../data/Churn_Data_Sample.csv" target="_blank">View Data (CSV)</a>
+          <a class="btn" href="report/Event%20Study%20-%20Activision.docx" target="_blank">Full Report (DOCX)</a>
+          <a class="btn" href="data/EventStudy_YahooData.csv" target="_blank">Yahoo Finance Data (CSV)</a>
         </div>
       </section>
 
-      <footer>© <span id="y"></span> Jorge Mendez · Excel dashboards · slicers · pivots</footer>
+      <footer>© <span id="y"></span> Jorge Mendez · Built with R & Excel</footer>
     </main>
   </div>
-
   <script>
     document.getElementById('y').textContent=new Date().getFullYear();
     const links=[...document.querySelectorAll('.toc a')];
     const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
-    function setActive(){
-      const y=window.scrollY+110; let k=0; secs.forEach((s,i)=>{if(s&&s.offsetTop<=y)k=i});
-      links.forEach((a,i)=>a.classList.toggle('active',i===k));
-    }
-    window.addEventListener('scroll',setActive,{passive:true}); setActive();
-    (function(){
-      const r=document.documentElement,b=document.getElementById('themeBtn');
-      const s=localStorage.getItem('jm-theme');
-      if(s==='light'||s==='dark'){r.setAttribute('data-theme',s);}else{r.setAttribute('data-theme',window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');}
-      b.addEventListener('click',()=>{const n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);localStorage.setItem('jm-theme',n);b.textContent=(n==='dark')?'☾':'☀︎';});
-      b.textContent=(r.getAttribute('data-theme')==='dark')?'☾':'☀︎';
-    })();
+    function setActive(){const y=window.scrollY+110;let k=0;secs.forEach((s,i)=>{if(s&&s.offsetTop<=y)k=i});links.forEach((a,i)=>a.classList.toggle('active',i===k));}
+    window.addEventListener('scroll',setActive,{passive:true});setActive();
+    (function(){const r=document.documentElement,b=document.getElementById('themeBtn');const s=localStorage.getItem('jm-theme');if(s==='light'||s==='dark'){r.setAttribute('data-theme',s);}else{r.setAttribute('data-theme',window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');}b.addEventListener('click',()=>{const n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);localStorage.setItem('jm-theme',n);b.textContent=(n==='dark')?'☾':'☀︎';});b.textContent=(r.getAttribute('data-theme')==='dark')?'☾':'☀︎';})();
   </script>
 </body>
 </html>
