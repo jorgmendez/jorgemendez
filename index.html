@@ -98,23 +98,7 @@
 
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
-    (function(){
-      const r=document.documentElement, b=document.getElementById('themeBtn');
-      const s=localStorage.getItem('jm-theme');
-      function setIcon(){ b.textContent = (r.getAttribute('data-theme')==='dark') ? '☾' : '☀︎'; }
-      if(s==='light'||s==='dark'){
-        r.setAttribute('data-theme',s);
-      }else{
-        r.setAttribute('data-theme', window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      }
-      setIcon();
-      b.addEventListener('click',()=>{
-        const n = r.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
-        r.setAttribute('data-theme',n);
-        localStorage.setItem('jm-theme',n);
-        setIcon();
-      });
-    })();{const n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);localStorage.setItem('jm-theme',n);setIcon();});})();
+    (function(){const r=document.documentElement,b=document.getElementById('themeBtn');const s=localStorage.getItem('jm-theme');if(s==='light'||s==='dark'){r.setAttribute('data-theme',s);}else{r.setAttribute('data-theme',window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');}b.addEventListener('click',()=>{const n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);localStorage.setItem('jm-theme',n);});})();
   </script>
 </body>
 </html>
